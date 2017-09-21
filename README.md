@@ -1,26 +1,42 @@
-note_api
-=====
+# Note API 
 
-An OTP application
+This Erlang/OTP application is the API application for the
+[note](https://github.com/el-monkey/note) application.
 
-Build
------
+It is the first API that I have attempted to write that uses other
+Erlang libraries/applications that I have also written.
 
+The application uses the following third party utility libraries
+
+- [jiffy](https://github.com/davisp/jiffy) for rendering JSON
+- [iso8601](https://github.com/erlsci/iso8601) for rendering ISO86 dates
+
+The application also uses [Cowboy](https://github.com/ninenines/cowboy) to handle
+the HTTP request.
+
+Dependencies are managed using [Rebar3](https://www.rebar3.org/).
+
+## Build
+
+```bash
     $ rebar3 compile
+```
 
-
-Testing the Api with Curl
----
+## Testing the Api with Curl
 
 ```bash
 $ curl -i -XGET 127.0.0.1:8080/notes
 ```
 
-Pretty print
+### Pretty print
 
 ```bash
 $ curl  -XGET 127.0.0.1:8080/notes | python -m json.tool
 ```
+
+
+
+
 
 
 Method not allowed
